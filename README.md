@@ -1,4 +1,4 @@
-# illenium-appearance
+# illenium-appearance [Core inventory cloth as item compatible]
 
 A replacement for clothing resources for various frameworks
 
