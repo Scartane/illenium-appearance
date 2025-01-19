@@ -114,6 +114,7 @@ function InitializeCharacter(gender, onSubmit, onCancel)
     client.startPlayerCustomization(function(appearance)
         if (appearance) then
             TriggerServerEvent("illenium-appearance:server:saveAppearance", appearance)
+            exports.core_inventory:addClothingItemFromPedSkinInClothHolder(PlayerPedId(), false, true, true)
             if onSubmit then
                 onSubmit()
             end
@@ -143,6 +144,7 @@ function OpenShop(config, isPedMenu, shopType)
                     TriggerServerEvent("illenium-appearance:server:chargeCustomer", shopType)
                 end
                 TriggerServerEvent("illenium-appearance:server:saveAppearance", appearance)
+                exports.core_inventory:addClothingItemFromPedSkinInClothHolder(PlayerPedId(), false, true, true)
             else
                 lib.notify({
                     title = _L("cancelled.title"),
@@ -674,6 +676,7 @@ RegisterNetEvent("illenium-appearance:client:changeOutfit", function(data)
         else
             local appearance = client.getPedAppearance(cache.ped)
             TriggerServerEvent("illenium-appearance:server:saveAppearance", appearance)
+            exports.core_inventory:addClothingItemFromPedSkinInClothHolder(cache.ped, false, true, true)
         end
         Framework.CachePed()
     end
